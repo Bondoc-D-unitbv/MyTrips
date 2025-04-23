@@ -1,0 +1,36 @@
+.hero {
+    height: 100vh;
+    background: url('/assets/Mighty-Tree-With-Green-Leaves-Banner-Nature-To-Nurture-Aromatherapy-In-Hemel-St-Albans.jpg') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    text-align: center;
+    position: relative;
+  
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.4); 
+      z-index: 1;
+    }
+  
+    .hero-text {
+      position: relative;
+      z-index: 2;
+      font-family: 'Segoe UI', sans-serif;
+  
+      h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+  
+      p {
+        font-size: 1.2rem;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+    }
+  }
+  

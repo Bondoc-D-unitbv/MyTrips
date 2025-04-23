@@ -1,1 +1,12 @@
-<p>header works!</p>
+<header class="header">
+    <div class="logo">🌄 NatureTrips</div>
+    <nav>
+      <ul nz-menu nzMode="horizontal" class="nav-menu">
+        <li nz-menu-item [routerLink]="['/']" [nzSelected]="router.url === '/'">Home</li>
+        <li nz-menu-item [routerLink]="['/explore']" [nzSelected]="router.url === '/explore'">Explore</li>
+        <li nz-menu-item [routerLink]="['/about']" [nzSelected]="router.url === '/about'">About</li>
+        <li nz-menu-item [routerLink]="['/auth']" [nzSelected]="router.url.startsWith('/auth')">Login</li>
+      </ul>
+    </nav>
+  </header>
+  
