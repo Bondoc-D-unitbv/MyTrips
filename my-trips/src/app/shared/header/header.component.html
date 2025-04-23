@@ -5,6 +5,15 @@
         <li nz-menu-item [routerLink]="['/']" [nzSelected]="router.url === '/'">Home</li>
         <li nz-menu-item [routerLink]="['/explore']" [nzSelected]="router.url === '/explore'">Explore</li>
         <li nz-menu-item [routerLink]="['/about']" [nzSelected]="router.url === '/about'">About</li>
+
+        <li *ngIf="!isLoggedIn" 
+          nz-menu-item 
+          [routerLink]="['/auth/register']" 
+          [nzSelected]="router.url === '/auth/register'">
+          Register
+        </li>
+        
+
         <li 
           *ngIf="!isLoggedIn"
           nz-menu-item 

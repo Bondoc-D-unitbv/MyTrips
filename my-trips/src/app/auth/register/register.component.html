@@ -1,1 +1,49 @@
-<p>register works!</p>
+<div class="register-container">
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" nz-form nzLayout="vertical">
+      <h2>Register</h2>
+  
+      <nz-form-item>
+        <nz-form-label>First Name</nz-form-label>
+        <nz-form-control>
+          <input nz-input formControlName="firstName" placeholder="First name" />
+        </nz-form-control>
+      </nz-form-item>
+  
+      <nz-form-item>
+        <nz-form-label>Last Name</nz-form-label>
+        <nz-form-control>
+          <input nz-input formControlName="lastName" placeholder="Last name" />
+        </nz-form-control>
+      </nz-form-item>
+  
+      <nz-form-item>
+        <nz-form-label>Email</nz-form-label>
+        <nz-form-control>
+          <input nz-input formControlName="email" placeholder="Email" />
+        </nz-form-control>
+      </nz-form-item>
+  
+      <nz-form-item>
+        <nz-form-label>Password</nz-form-label>
+        <nz-form-control>
+          <input nz-input type="password" formControlName="password" placeholder="Password" />
+          <div class="error" *ngIf="registerForm.get('password')?.errors?.['weakPassword']">
+            Password must contain 6+ chars, upper & lower case, digit, special char.
+          </div>
+        </nz-form-control>
+      </nz-form-item>
+  
+      <nz-form-item>
+        <nz-form-label>Confirm Password</nz-form-label>
+        <nz-form-control>
+          <input nz-input type="password" formControlName="confirmPassword" placeholder="Confirm Password" />
+          <div class="error" *ngIf="registerForm.errors?.['mismatch']">
+            Passwords do not match.
+          </div>
+        </nz-form-control>
+      </nz-form-item>
+  
+      <button nz-button nzType="primary" [disabled]="registerForm.invalid">Register</button>
+    </form>
+  </div>
+  

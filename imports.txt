@@ -3,3 +3,11 @@ npm install @angular/google-maps
 npm install @ctrl/tinycolor
 
 ng add ng-zorro-antd
+
+_____________________
+
+The only acepted e-mail address is 
+	eve.holt@reqres.in
+	
+passw: UserMan1! 
+(happens due to the api site we're using)
