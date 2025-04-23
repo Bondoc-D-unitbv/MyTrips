@@ -5,7 +5,22 @@
         <li nz-menu-item [routerLink]="['/']" [nzSelected]="router.url === '/'">Home</li>
         <li nz-menu-item [routerLink]="['/explore']" [nzSelected]="router.url === '/explore'">Explore</li>
         <li nz-menu-item [routerLink]="['/about']" [nzSelected]="router.url === '/about'">About</li>
-        <li nz-menu-item [routerLink]="['/auth']" [nzSelected]="router.url.startsWith('/auth')">Login</li>
+        <li 
+          *ngIf="!isLoggedIn"
+          nz-menu-item 
+          [routerLink]="['/auth/login']" 
+          [nzSelected]="router.url === '/auth/login'">
+          Login
+        </li>
+
+        <li 
+          *ngIf="isLoggedIn"
+          nz-menu-item 
+          (click)="logout()">
+          Logout
+        </li>
+
+
       </ul>
     </nav>
   </header>

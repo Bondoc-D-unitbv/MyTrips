@@ -1,1 +1,29 @@
-<p>login works!</p>
+<div class="login-container">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" nz-form nzLayout="vertical">
+      <h2>Login</h2>
+  
+      <nz-form-item>
+        <nz-form-label>Email</nz-form-label>
+        <nz-form-control>
+          <input nz-input formControlName="email" type="email" placeholder="Enter your email" />
+        </nz-form-control>
+      </nz-form-item>
+  
+      <nz-form-item>
+        <nz-form-label>Password</nz-form-label>
+        <nz-form-control>
+          <input nz-input formControlName="password" type="password" placeholder="Enter password" />
+          <div class="error" *ngIf="loginForm.get('password')?.errors?.['weakPassword']">
+            Password must contain 6+ chars, upper & lower case, digit, and special char.
+          </div>
+        </nz-form-control>
+      </nz-form-item>
+  
+      <nz-form-item>
+        <label nz-checkbox formControlName="rememberMe">Remember Me</label>
+      </nz-form-item>
+  
+      <button nz-button nzType="primary" [disabled]="loginForm.invalid">Login</button>
+    </form>
+  </div>
+  

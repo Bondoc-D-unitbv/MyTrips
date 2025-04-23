@@ -12,4 +12,14 @@ import { NzMenuModule } from 'ng-zorro-antd/menu';
 })
 export class HeaderComponent {
   constructor(public router: Router) {}
+
+  get isLoggedIn(): boolean {
+    return !!localStorage.getItem('auth_token');
+  }
+
+  logout() {
+    localStorage.removeItem('auth_token');
+    this.router.navigate(['/auth/login']);
+  }
+  
 }
