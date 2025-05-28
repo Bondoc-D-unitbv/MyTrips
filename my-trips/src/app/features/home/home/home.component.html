@@ -1,0 +1,8 @@
+<div class="trails-container">
+    <app-trail-card
+      *ngFor="let trail of trails$()"
+      [trail]="trail"
+      (viewDetails)="openDetails($event)">
+    </app-trail-card>
+</div>
+  

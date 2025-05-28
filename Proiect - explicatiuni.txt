@@ -1,0 +1,28 @@
+1. 	d. Guard - sa vada doar loginPage daca nu e logat, 
+	e. conectare la api fake 
+	
+2.	fully lazy loaded 
+	toate rutele sa fie prin lazy loading
+	
+3.	stocare date prin serviciu 
+	input / output prin serviciu sau direct din input 
+		(grija sa le si folosim daca le facem)
+		
+4. 	tabel 
+	a. 	minim 5 coloane 
+	b. 	date adaugate prin modal
+		modulul de modal din NgZorro 
+			ex: buton de add -> modal nou cu un formular nou 
+				daca dau edit in tabel, prepopulez cu datele deja in tabel 
+				
+	c. 	pentru fiecare intrare in tabel trebuie un buton de delete 
+	d.	sortarea se face dupa fiecare coloana 
+	
+5. folosim minim un signal 
+	
+6. Library de UI (nu facem noi CSS de la 0)
+	tabel, modal, sortare - cu NgZorro
+	
+7. Cod curat - componente standalone, asezarea in fisiere, foldere, ...
+
+8. Sa nu crape, sa ruleasca, sa nu fie draci mici prin proiect
