@@ -64,4 +64,9 @@ export class RegisterComponent {
       });
     }
   }
+
+  goToLogin() {
+  this.router.navigate(['/auth/login']);
+  }
+
 }

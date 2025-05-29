@@ -44,6 +44,11 @@
       </nz-form-item>
   
       <button nz-button nzType="primary" [disabled]="registerForm.invalid">Register</button>
+
+      <button nz-button nzType="link" (click)="goToLogin()">
+        Already have an account? Login →
+      </button>
+
     </form>
   </div>
   

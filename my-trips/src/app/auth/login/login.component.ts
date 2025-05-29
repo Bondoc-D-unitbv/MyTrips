@@ -53,6 +53,9 @@ export class LoginComponent {
           if (rememberMe) {
             localStorage.setItem('auth_token', res.token);
           }
+          else{
+            sessionStorage.setItem('auth_token', res.token);
+          }
           this.router.navigate(['/']);
         },
         error: () => {

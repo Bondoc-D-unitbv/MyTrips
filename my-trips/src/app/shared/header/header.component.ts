@@ -14,7 +14,7 @@ export class HeaderComponent {
   constructor(public router: Router) {}
 
   get isLoggedIn(): boolean {
-    return !!localStorage.getItem('auth_token');
+    return !!localStorage.getItem('auth_token')  || !!sessionStorage.getItem('auth_token');
   }
 
   logout() {
