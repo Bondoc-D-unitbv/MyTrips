@@ -3,7 +3,7 @@
     <nav>
       <ul nz-menu nzMode="horizontal" class="nav-menu">
         <li nz-menu-item [routerLink]="['/']" [nzSelected]="router.url === '/'">Home</li>
-        <li nz-menu-item [routerLink]="['/explore']" [nzSelected]="router.url === '/explore'">Explore</li>
+        <li nz-menu-item [routerLink]="['/features/explore']" [nzSelected]="router.url === '/features/explore'">Explore</li>
         <li nz-menu-item [routerLink]="['/about']" [nzSelected]="router.url === '/about'">About</li>
 
         <li *ngIf="!isLoggedIn" 

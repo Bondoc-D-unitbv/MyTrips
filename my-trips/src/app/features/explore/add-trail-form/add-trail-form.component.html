@@ -1,0 +1,178 @@
+<form nz-form [formGroup]="form">
+
+  <!-- Title -->
+  <nz-form-item>
+    <nz-form-label nzFor="title" nzRequired>Title</nz-form-label>
+    <nz-form-control
+      nzHasFeedback
+      [nzErrorTip]="titleErrors"
+    >
+      <input nz-input id="title" formControlName="title" placeholder="Enter title" />
+      <ng-template #titleErrors let-control>
+        @if (control.errors?.['required']) {
+          <div>Title is required.</div>
+        }
+        @if (control.errors?.['minlength']) {
+          <div>Title must be at least 3 characters long.</div>
+        }
+      </ng-template>
+    </nz-form-control>
+  </nz-form-item>
+
+  <!-- Location -->
+  <nz-form-item>
+    <nz-form-label nzFor="location" nzRequired>Location</nz-form-label>
+    <nz-form-control
+      nzHasFeedback
+      [nzErrorTip]="locationErrors"
+    >
+      <input nz-input id="location" formControlName="location" placeholder="Enter location" />
+      <ng-template #locationErrors let-control>
+        @if (control.errors?.['required']) {
+          <div>Location is required.</div>
+        }
+        @if (control.errors?.['minlength']) {
+          <div>Location must be at least 3 characters long.</div>
+        }
+      </ng-template>
+    </nz-form-control>
+  </nz-form-item>
+
+  <!-- Short Description -->
+  <nz-form-item>
+    <nz-form-label nzFor="shortDescription" nzRequired>Short Description</nz-form-label>
+    <nz-form-control
+      nzHasFeedback
+      [nzErrorTip]="shortDescErrors"
+    >
+      <textarea
+        nz-input
+        id="shortDescription"
+        formControlName="shortDescription"
+        rows="2"
+        placeholder="Enter a short description"
+      ></textarea>
+      <ng-template #shortDescErrors let-control>
+        @if (control.errors?.['required']) {
+          <div>Short description is required.</div>
+        }
+        @if (control.errors?.['minlength']) {
+          <div>Short description must be at least 10 characters long.</div>
+        }
+      </ng-template>
+    </nz-form-control>
+  </nz-form-item>
+
+  <!-- Long Description -->
+  <nz-form-item>
+    <nz-form-label nzFor="longDescription" nzRequired>Long Description</nz-form-label>
+    <nz-form-control
+      nzHasFeedback
+      [nzErrorTip]="longDescErrors"
+    >
+      <textarea
+        nz-input
+        id="longDescription"
+        formControlName="longDescription"
+        rows="4"
+        placeholder="Enter a detailed description"
+      ></textarea>
+      <ng-template #longDescErrors let-control>
+        @if (control.errors?.['required']) {
+          <div>Long description is required.</div>
+        }
+        @if (control.errors?.['minlength']) {
+          <div>Long description must be at least 20 characters long.</div>
+        }
+      </ng-template>
+    </nz-form-control>
+  </nz-form-item>
+
+  <!-- Thumbnail URL -->
+  <nz-form-item>
+    <nz-form-label nzFor="thumbnailUrl" nzRequired>Thumbnail URL</nz-form-label>
+    <nz-form-control
+      nzHasFeedback
+      [nzErrorTip]="thumbnailErrors"
+    >
+      <input
+        nz-input
+        id="thumbnailUrl"
+        formControlName="thumbnailUrl"
+        placeholder="Enter image URL (must start with http/https)"
+      />
+      <ng-template #thumbnailErrors let-control>
+        @if (control.errors?.['required']) {
+          <div>Thumbnail URL is required.</div>
+        }
+        @if (control.errors?.['pattern']) {
+          <div>Thumbnail URL must be a valid URL starting with http or https.</div>
+        }
+      </ng-template>
+    </nz-form-control>
+  </nz-form-item>
+
+  <!-- Coordinates: Latitude -->
+  <!-- Coordinates Group -->
+<nz-form-item formGroupName="coordinates">
+  <nz-form-label nzFor="lat" nzRequired>Latitude</nz-form-label>
+  <nz-form-control
+    nzHasFeedback
+    [nzErrorTip]="latErrors"
+  >
+    <input
+      nz-input
+      id="lat"
+      type="number"
+      formControlName="lat"
+      placeholder="Enter latitude"
+    />
+    <ng-template #latErrors let-control>
+      @if (control.errors?.['required']) {
+        <div>Latitude is required.</div>
+      }
+    </ng-template>
+  </nz-form-control>
+</nz-form-item>
+
+<nz-form-item formGroupName="coordinates">
+  <nz-form-label nzFor="lng" nzRequired>Longitude</nz-form-label>
+  <nz-form-control
+    nzHasFeedback
+    [nzErrorTip]="lngErrors"
+  >
+    <input
+      nz-input
+      id="lng"
+      type="number"
+      formControlName="lng"
+      placeholder="Enter longitude"
+    />
+    <ng-template #lngErrors let-control>
+      @if (control.errors?.['required']) {
+        <div>Longitude is required.</div>
+      }
+    </ng-template>
+  </nz-form-control>
+</nz-form-item>
+
+  <!-- Type (Select) -->
+  <nz-form-item>
+    <nz-form-label nzFor="type" nzRequired>Type</nz-form-label>
+    <nz-form-control
+      nzHasFeedback
+    >
+      <select nz-input id="type" formControlName="type">
+        <option value="hiking">Hiking</option>
+        <option value="biking">Biking</option>
+        <option value="walking">Walking</option>
+        <option value="skiing">Skiing</option>
+        <option value="climbing">Climbing</option>
+        <option value="cycling">Cycling</option>
+        <option value="kayaking">Kayaking</option>
+        <option value="horseback riding">Horseback Riding</option>
+        <option value="caving">Caving</option>
+      </select>
+    </nz-form-control>
+  </nz-form-item>
+</form>

@@ -1,0 +1,14 @@
+@if (trail) {
+  <div>
+    <img
+  [src]="trail.thumbnailUrl"
+  [alt]="trail.title"
+  style="width: 100%; max-height: 200px; object-fit: cover; margin-bottom: 1rem;"
+/>
+    <p><strong>Location:</strong> {{ trail.location }}</p>
+    <p><strong>Type:</strong> {{ trail.type }}</p>
+    <p><strong>Description:</strong> {{ trail.longDescription }}</p>
+  </div>
+} @else {
+  <p>Loading trail details...</p>
+}

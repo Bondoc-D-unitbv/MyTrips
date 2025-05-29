@@ -9,6 +9,6 @@ export interface Trail {
       lat: number;
       lng: number;
     };
-    type: 'hiking' | 'biking';
+    type: 'hiking' | 'biking' | 'walking' | 'skiing' | 'climbing' | 'cycling' | 'kayaking' | 'horseback riding' | 'caving';
   }
   

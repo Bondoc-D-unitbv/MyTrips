@@ -1,0 +1,46 @@
+<app-header></app-header>
+
+<button (click)="addItem()" nz-button nzType="primary">
+  Add Trail
+</button>
+
+<input
+  nz-input
+  [(ngModel)]="searchText"
+  (ngModelChange)="search()"
+  placeholder="Search title, location or type"
+  style="width: 300px; margin: 16px 0;"
+/>
+
+<nz-table
+  #basicTable [nzData]="filteredTrails"
+  [nzFrontPagination]="false"
+  [nzPageSize]="10"
+  [nzScroll]="{ x: '1000px' }"
+>
+  <thead>
+    <tr>
+        <th nzShowSort (nzSortOrderChange)="sort('title', $event)">Title</th>
+        <th nzShowSort (nzSortOrderChange)="sort('location', $event)">Location</th>
+        <th nzShowSort (nzSortOrderChange)="sort('type', $event)">Type</th>
+      <th>Description</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (trail of basicTable.data; track trail){
+    <tr>
+      <td>{{ trail.title }}</td>
+      <td>{{ trail.location }}</td>
+      <td>{{ trail.type }}</td>
+      <td>{{ trail.shortDescription }}</td>
+      <td>
+        <button nz-button nzType="link" (click)="onViewDetails(trail.id)">View Details</button>
+        <button nz-button nzType="link" (click)="editItem(trail.id)">Edit</button>
+        <button nz-button nzType="link" (click)="deleteItem(trail.id)">Delete</button>
+      </td>
+    </tr>
+}
+  </tbody>
+</nz-table>
+

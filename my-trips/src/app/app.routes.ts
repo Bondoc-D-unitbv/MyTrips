@@ -13,6 +13,10 @@ export const routes: Routes = [
       path: 'auth/register',
       loadComponent: () => import('./auth/register/register.component').then(m => m.RegisterComponent)
     },
+    {
+      path: 'features/explore',
+      loadComponent: () => import('./features/explore/trails.page/trails.page.component').then(m => m.TrailsPageComponent)
+    }
     
   ];
   

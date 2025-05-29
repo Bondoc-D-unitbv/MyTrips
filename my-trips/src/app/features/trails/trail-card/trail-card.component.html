@@ -1,4 +1,5 @@
 <nz-card [nzCover]="coverTemplate" (click)="viewDetails.emit(trail.id)">
+
     <ng-template #coverTemplate>
       <img [src]="trail.thumbnailUrl" alt="{{ trail.title }}" />
     </ng-template>
@@ -6,6 +7,7 @@
       [nzTitle]="trail.title"
       [nzDescription]="trail.shortDescription">
     </nz-card-meta>
+    <button nz-button nzType="primary" (click)="viewDetails.emit(trail.id)">View Details</button>
     <div class="trail-location">📍 {{ trail.location }}</div>
   </nz-card>
   

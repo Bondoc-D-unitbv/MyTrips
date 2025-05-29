@@ -13,4 +13,8 @@ import { Trail } from '../../../models/trail.model';
 export class TrailCardComponent {
   @Input() trail!: Trail;
   @Output() viewDetails = new EventEmitter<string>();
+
+  onViewDetails() {
+    this.viewDetails.emit(this.trail.id);
+  }
 }
