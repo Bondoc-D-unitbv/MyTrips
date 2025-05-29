@@ -53,7 +53,7 @@ export class RegisterComponent {
   onSubmit(): void {
     if (this.registerForm.valid) {
       const { email, password } = this.registerForm.value;
-      this.http.post('https://reqres.in/api/register', { email, password }).subscribe({
+      this.http.post('https://683870c12c55e01d184d5142.mockapi.io/mytripsapi/Users', { email, password }).subscribe({
         next: () => {
           alert('Registration successful!');
           this.router.navigate(['/auth/login']);
