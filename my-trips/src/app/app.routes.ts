@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
-import { AuthGuard } from './auth/auth.guard';
 import { InitialRedirectGuard } from './auth/initial-redirect.guard';
+import { GuestOnlyGuard } from './auth/guard/guestOnly.guard';
+import { AuthOnlyGuard } from './auth/guard/authOnly.guard';
 
 export const routes: Routes = [
   {
@@ -9,22 +10,24 @@ export const routes: Routes = [
     component: class DummyComponent {} 
   },
   {
-    path: '',
-    loadComponent: () => import('./features/home/home.page').then(m => m.HomePage),
-  },
-  {
     path: 'auth/login',
-    loadComponent: () => import('./auth/login/login.component').then(m => m.LoginComponent),
-    canActivate: [AuthGuard]
+    canActivate: [GuestOnlyGuard],
+    loadComponent: () => import('./auth/login/login.component').then(m => m.LoginComponent)
   },
   {
     path: 'auth/register',
-    loadComponent: () => import('./auth/register/register.component').then(m => m.RegisterComponent),
-    canActivate: [AuthGuard]
+    canActivate: [GuestOnlyGuard],
+    loadComponent: () => import('./auth/register/register.component').then(m => m.RegisterComponent)
   },
   {
     path: 'features/explore',
+    canActivate: [AuthOnlyGuard],
     loadComponent: () => import('./features/explore/trails.page/trails.page.component').then(m => m.TrailsPageComponent)
+  },
+  {
+    path: 'features/home',
+    canActivate: [AuthOnlyGuard],
+    loadComponent: () => import('./features/home/home.page').then(m => m.HomePage)
   },
   {
     path: '**',
